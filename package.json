@@ -2,13 +2,13 @@
   "name": "@happyjayxin/jgrid",
   "version": "1.0.0",
   "description": "A simple Flex grid system.",
-  "main": "index.js",
+  "main": "dist/jgrid.css",
   "scripts": {
     "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/HappyJayXin/JGrid.git"
   },
   "keywords": [
     "Grid",
