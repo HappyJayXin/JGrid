@@ -1,0 +1,20 @@
+{
+  "name": "@happyjayxin/jgrid",
+  "version": "1.0.0",
+  "description": "A simple Flex grid system.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "Grid",
+    "Flex",
+    "CSS"
+  ],
+  "author": "Jay",
+  "license": "MIT"
+}
