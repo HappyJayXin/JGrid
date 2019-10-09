@@ -1,0 +1,225 @@
+@import "./response";
+
+.row {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: -($grid-gutter) + px;
+  margin-left: -($grid-gutter / 2) + px;
+  margin-right: -($grid-gutter / 2) + px;
+
+  // Reverse
+  &.reverse {
+    flex-direction: row-reverse;
+  }
+
+  // Wrap
+  &.nowrap {
+    flex-wrap: nowrap;
+  }
+
+  // No gutters
+  &.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+    > [class*="col-"] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}
+
+.column {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: -($grid-gutter) + px;
+  margin-left: -($grid-gutter / 2) + px;
+  margin-right: -($grid-gutter / 2) + px;
+
+  // Reverse
+  &.reverse {
+    flex-direction: column-reverse;
+  }
+
+  // Wrap
+  &.nowrap {
+    flex-wrap: nowrap;
+  }
+
+  // No gutters
+  &.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+    > [class*="col-"] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}
+
+// Global settings for col
+.col,
+[class*="col-"] {
+  margin-top: $grid-gutter + px;
+  padding-left: ($grid-gutter / 2) + px;
+  padding-right: ($grid-gutter / 2) + px;
+  flex-grow: 1;
+}
+
+// Horizontal align
+@each $position, $value in $grid-row-pos {
+  .#{$position} {
+    justify-content: $value;
+  }
+}
+@each $breakpoint, $value in $grid-breakpoints {
+  @include respond($value) {
+    @each $position, $value in $grid-row-pos {
+      .#{$position}-#{$breakpoint} {
+        justify-content: $value;
+      }
+    }
+  }
+}
+
+// Vertical align
+@each $position, $value in $grid-col-pos {
+  .#{$position} {
+    align-items: $value;
+  }
+}
+@each $breakpoint, $value in $grid-breakpoints {
+  @include respond($value) {
+    @each $position, $value in $grid-col-pos {
+      .#{$position}-#{$breakpoint} {
+        align-items: $value;
+      }
+    }
+  }
+}
+
+// Every colume sizes
+%grid-column {
+  position: relative;
+  width: 100%;
+}
+
+@each $breakpoint, $value in $grid-breakpoints {
+  .col-#{$breakpoint} {
+    @extend %grid-column;
+  }
+  @for $size from 1 through $grid-sizes {
+    .col-#{$breakpoint}-#{$size} {
+      @extend %grid-column;
+    }
+    .col-#{$size} {
+      @extend %grid-column;
+    }
+  }
+}
+
+.col {
+  @extend %grid-column;
+  box-sizing: border-box;
+  flex-grow: 1;
+  flex-basis: 0;
+  max-width: 100%;
+}
+@for $size from 1 through $grid-sizes {
+  .col-#{$size} {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    flex-basis: 100% / $grid-sizes * $size;
+    max-width: 100% / $grid-sizes * $size;
+  }
+}
+@each $breakpoint, $value in $grid-breakpoints {
+  @include respond($value) {
+    .col-#{$breakpoint} {
+      box-sizing: border-box;
+      flex-grow: 1;
+      flex-basis: 0;
+      max-width: 100%;
+    }
+    @for $size from 1 through $grid-sizes {
+      .col-#{$breakpoint}-#{$size} {
+        box-sizing: border-box;
+        flex: 0 0 auto;
+        flex-basis: 100% / $grid-sizes * $size;
+        max-width: 100% / $grid-sizes * $size;
+      }
+    }
+  }
+}
+
+// Order colume
+@each $position, $value in $grid-orders {
+  .#{$position} {
+    order: $value;
+  }
+}
+@each $breakpoint, $value in $grid-breakpoints {
+  @include respond($value) {
+    @each $position, $value in $grid-orders {
+      .#{$position}-#{$breakpoint} {
+        order: $value;
+      }
+    }
+  }
+}
+
+@for $size from 1 through $grid-sizes {
+  .order-#{$size} {
+    order: $size;
+  }
+}
+@each $breakpoint, $value in $grid-breakpoints {
+  @include respond($value) {
+    @for $size from 1 through $grid-sizes {
+      .order-#{$breakpoint}-#{$size} {
+        order: $size;
+      }
+    }
+  }
+}
+
+// Offset
+@for $size from 0 through $grid-sizes {
+  .col-offset-#{$size} {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    margin-left: 100% / $grid-sizes * $size;
+  }
+}
+@each $breakpoint, $value in $grid-breakpoints {
+  @include respond($value) {
+    @for $size from 0 through $grid-sizes {
+      .col-offset-#{$breakpoint}-#{$size} {
+        box-sizing: border-box;
+        flex: 0 0 auto;
+        margin-left: 100% / $grid-sizes * $size;
+      }
+    }
+  }
+}
+
+// Text
+@each $position, $value in $txt {
+  .txt-#{$position} {
+    text-align: $value;
+  }
+}
+@each $breakpoint, $value in $grid-breakpoints {
+  @include respond($value) {
+    @each $position, $value in $txt {
+      .txt-#{$breakpoint}-#{$position} {
+        text-align: $value;
+      }
+    }
+  }
+}

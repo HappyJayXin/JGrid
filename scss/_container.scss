@@ -1,0 +1,22 @@
+@import "./response";
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: ($grid-gutter / 2) + px;
+  padding-right: ($grid-gutter / 2) + px;
+  &--fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+}
+
+@each $position, $value in $grid-breakpoints {
+  @include respond($value) {
+    .container {
+      width: unit($value);
+    }
+  }
+}

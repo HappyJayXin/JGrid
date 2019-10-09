@@ -1,0 +1,15 @@
+/*!
+ * Jay Grid System v1.0.0
+ * Copyright 2019 
+ */
+
+@import "./variable";
+@import "./unit";
+@import "./grid";
+@import "./container";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

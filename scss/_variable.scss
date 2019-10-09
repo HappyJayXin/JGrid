@@ -1,0 +1,34 @@
+$grid-sizes: 12;
+$grid-gutter: 10;
+
+$grid-breakpoints: (
+  sm: 576,
+  md: 768,
+  lg: 1024,
+  xl: 1200
+);
+
+$grid-row-pos: (
+  start: flex-start,
+  center: center,
+  end: flex-end,
+  between: space-between,
+  around: space-around
+);
+
+$grid-col-pos: (
+  top: flex-start,
+  middle: center,
+  bottom: flex-end
+);
+
+$grid-orders: (
+  first: -1,
+  last: 1
+);
+
+$txt: (
+  left: left,
+  center: center,
+  right: right
+);
