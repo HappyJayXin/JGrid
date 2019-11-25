@@ -9,13 +9,13 @@ J-Grid is a simple Flex Grid System.
 ## Usage
 1. Link to the file in your header.
 
-```javascript
+```html
 <link href="/path/to/jgrid.css" rel="stylesheet">
 ```
 
 2. Use it !
 
-```javascript
+```html
 <div class="row">
   <div class="col-5">
     <div class="box txt-center">Hello J-Grid！</div>
